@@ -1,0 +1,12 @@
+asgiref==3.2.3
+Django==3.0.4
+django-cors-headers==3.2.1
+djangorestframework==3.11.0
+joblib==0.14.1
+numpy==1.18.1
+profanity-check==1.0.3
+pytz==2019.3
+scikit-learn==0.22.2.post1
+scipy==1.4.1
+sqlparse==0.3.1
+gunicorn==19.9.0
