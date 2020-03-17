@@ -64,8 +64,8 @@ class Login(APIView):
 
 
 class GetAllUsers(APIView):
-    def get(self, request):
-        model = User.objects.all()
+    def post(self, request):
+        model = User.objects.filter().exclude(id=request.data.get("uid"))
         serializer = GetAllUserSerializer(model, many=True)
         data = {
             "data" : serializer.data,
