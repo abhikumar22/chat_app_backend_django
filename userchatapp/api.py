@@ -5,7 +5,7 @@ from .serializers import *
 import json
 from uuid import uuid4
 from decimal import Decimal
-from userchatapp.models import Auth, Chat, User
+from userchatapp.models import Auth, Chat, User,Blog
 
 from rest_framework.pagination import PageNumberPagination
 from django.core.paginator import Paginator
@@ -120,3 +120,38 @@ class AddChat(APIView):
 
 
         return Response(data, status=status.HTTP_200_OK)
+
+
+
+
+
+
+
+class AddBlog(APIView):
+    def post(self, request):
+
+        blog_obj  = Blog()
+        x = request.data.get("content")
+        y = request.data.get("timeInterval")
+        z = request.data.get("timeStamp")
+        p = request.data.get("title")
+
+        blog_obj.content_of_blog = x
+        blog_obj.read_interval_in_minutes = y
+        blog_obj.created_at = z
+        blog_obj.title = p
+
+        blog_obj.save()
+        data = {
+            "message" : "added chat",
+            "status":status.HTTP_200_OK
+        }
+        return Response(data)
+
+class GetAllBlog(APIView):
+    def post(self, request):
+
+        model= Blog.objects.all()
+        print("model",model)
+        serializer = GetAllBlogSerializer(model,many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

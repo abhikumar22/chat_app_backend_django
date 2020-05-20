@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls import url
 
-from userchatapp.api import Login, GetAllUsers, AddChat, GetAllChat
+from userchatapp.api import Login, GetAllUsers, AddChat, GetAllChat,AddBlog,GetAllBlog
 # ,getData
 
 urlpatterns = [
@@ -26,5 +26,6 @@ urlpatterns = [
     url('^getAllUsers$', GetAllUsers.as_view()),
     url('^getAllChat$', GetAllChat.as_view()),
     url('^addChat$', AddChat.as_view()),
-
+    url('^addBlog$', AddBlog.as_view()),
+    url('^getAllBlogs$', GetAllBlog.as_view()),
 ]

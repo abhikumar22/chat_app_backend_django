@@ -17,3 +17,10 @@ class Chat(models.Model):
     receiverId = models.ForeignKey(User,on_delete=models.DO_NOTHING, related_name='receiver_user_id')
     message = models.CharField(max_length=100)
     created_at = models.DateTimeField(default=timezone.now)
+
+
+class Blog(models.Model):
+    title = models.CharField(max_length=100)
+    content_of_blog = models.CharField(max_length=2000)
+    read_interval_in_minutes=models.CharField(max_length=50)
+    created_at = models.CharField(max_length=50)
