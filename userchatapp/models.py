@@ -23,4 +23,4 @@ class Blog(models.Model):
     title = models.CharField(max_length=100)
     content_of_blog = models.CharField(max_length=2000)
     read_interval_in_minutes=models.CharField(max_length=50)
-    created_at = models.CharField(max_length=50)
+    created_at = models.CharField(max_length=100)
